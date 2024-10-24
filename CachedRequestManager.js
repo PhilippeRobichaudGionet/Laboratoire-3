@@ -73,5 +73,8 @@ export class CachedRequestsManager {
         if (Data != null){
             HttpContext.response.JSON(Data.content, Data.Etag, true)
         }
+        else{
+            CachedRequestsManager.add(HttpContext.req.url,HttpContext.payload,HttpContext.req.ETag);
+        }
     }
 }
